@@ -1,0 +1,2 @@
+module FooBar where
+a = a
