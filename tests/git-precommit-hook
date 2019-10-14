@@ -19,6 +19,6 @@ git checkout-index --prefix="$D/" -a
 pushd "$D"
 
 # From https://github.com/inkarkat/runVimTests
-runVimTests.sh tests 2>&1 | cat -v
+runVimTests.sh --user tests 2>&1 | cat -v
 
 popd
