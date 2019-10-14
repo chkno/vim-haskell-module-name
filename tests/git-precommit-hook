@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Copy me to .git/hooks/pre-commit
+
+set -e
+
+cleanup() {
+  if [[ "$D" && -e "$D" ]];then
+    rm -rf "$D"
+  fi
+}
+trap cleanup EXIT
+
+D=$(mktemp -d)
+[[ "$D" && -d "$D" ]]
+
+git checkout-index --prefix="$D/" -a
+pushd "$D"
+
+# From https://github.com/inkarkat/runVimTests
+runVimTests.sh tests
+
+popd

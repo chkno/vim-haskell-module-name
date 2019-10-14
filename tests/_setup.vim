@@ -1,0 +1,1 @@
+source  ../ftplugin/haskell.vim
