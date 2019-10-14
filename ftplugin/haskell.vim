@@ -56,13 +56,13 @@ if ! exists("s:loaded")
 
   " Change the module declaration to match the filename
   command! FixHaskellModuleDeclaration
-    \ if HaskellModuleNameFromModuleDeclaration() != HaskellModuleNameFromFileName() |
+    \ if HaskellModuleNameFromModuleDeclaration() !=# HaskellModuleNameFromFileName() |
     \   call SetHaskellModuleName(HaskellModuleNameFromFileName()) |
     \ endif
 
   " Change the filename (move the file) to match the module declaration
   command! FixHaskellFilename
-    \ if HaskellModuleNameFromModuleDeclaration() != HaskellModuleNameFromFileName() |
+    \ if HaskellModuleNameFromModuleDeclaration() !=# HaskellModuleNameFromFileName() |
     \   call MoveFileToModuleName(HaskellModuleNameFromModuleDeclaration()) |
     \ endif
 
