@@ -6,9 +6,9 @@ if ! exists("s:loaded")
   " Line number of module declaration
   function! FindHaskellModuleDeclaration()
     for l:i in range(line('$'))
-      let l:l = getline(l:i)
+      let l:l = getline(l:i + 1)
       if l:l =~ '^\s*module '
-        return l:i
+        return l:i + 1
       endif
     endfor
     echoerr 'Could not find module line'
