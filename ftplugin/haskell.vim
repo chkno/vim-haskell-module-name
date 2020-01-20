@@ -50,6 +50,10 @@ if ! exists("s:loaded")
 
   " ['Data', 'Maybe'] -> ~/base/src/Data/Maybe.hs
   function! MoveFileToModuleName(new_name)
+    if exists(':Move') != 2
+      echoerr 'Moving files requires the Eunuch plugin'
+      return
+    endif
     let l:new_path = join([HaskellBaseDirectory()] + a:new_name, '/') . '.hs'
     execute 'Move ' . l:new_path
   endfunction
